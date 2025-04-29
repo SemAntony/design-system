@@ -22,8 +22,7 @@ export default defineConfig({
       fileName: format => `ui-core.${format}.js`,
       // fileName: `ui-core`,
       // formats: ["es", "cjs", "umd"],
-      formats: ['es'],
-
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: [

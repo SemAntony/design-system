@@ -25,7 +25,8 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "lib"
+    "lib",
+    "lib/scripts/generate-index.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

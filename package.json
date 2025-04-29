@@ -34,7 +34,8 @@
     "start": "vite",
     "dev": "storybook dev -p 6006",
     "prebuild": "rm -rf dist",
-    "build": "vite build && tsc",
+    "generate-index": "node lib/scripts/generate-index.js",
+    "build": "npm run generate-index && vite build && tsc",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview",
@@ -42,6 +43,7 @@
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.7",
+    "@radix-ui/react-checkbox": "^1.2.3",
     "@radix-ui/react-slider": "^1.1.2",
     "clsx": "^2.0.0",
     "react": "^18.2.0",
@@ -69,6 +71,7 @@
     "sass": "^1.69.5",
     "storybook": "7.5.3",
     "stylelint": "^15.11.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"
   }
