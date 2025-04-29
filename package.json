@@ -30,7 +30,9 @@
     "dist"
   ],
   "scripts": {
-    "nps": "nps"
+    "nps": "nps",
+    "generateIndex": "node scripts/generate-index.js",
+    "build": "nps generateIndex && vite build && tsc"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.7",
