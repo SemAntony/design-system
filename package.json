@@ -21,8 +21,8 @@
   "types": "dist/ui-core.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/ui-core.js",
-      "require": "./dist/ui-core.es.js"
+      "import": "./dist/ui-core.es.js",
+      "require": "./dist/ui-core.cjs.js"
     },
     "./style.css": "./dist/ui-core.css"
   },
