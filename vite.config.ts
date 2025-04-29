@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [
     viteReact(),
     tsconfigPaths(),
-    dts(), // Output .d.ts files
+    dts(),
   ],
   build: {
     lib: {
