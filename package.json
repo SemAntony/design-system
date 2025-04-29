@@ -27,8 +27,7 @@
     "./style.css": "./dist/styles.css"
   },
   "files": [
-    "dist",
-    "dist/style.css"
+    "dist"
   ],
   "scripts": {
     "start": "vite",
