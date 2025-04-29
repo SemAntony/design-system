@@ -1,5 +1,8 @@
 {
   "name": "@sem.antony/design-system",
+  "publishConfig": {
+    "access": "public"
+  },
   "private": false,
   "version": "0.0.1",
   "type": "module",
