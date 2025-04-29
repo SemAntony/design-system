@@ -15,7 +15,7 @@
   },
   "files": [
     "dist",
-    "dist/ui-core.css"
+    "dist/style.css"
   ],
   "scripts": {
     "start": "vite",
