@@ -37,29 +37,29 @@ scripts:
 
   version:
     patch:
-      script: 'pnpm version patch && git commit -am "chore: bump patch version" && git push && git push --tags'
+      script: 'pnpm version patch && git commit -am "chore: bump patch version" '
       description: 🔖 Повышение patch-версии
 
     minor:
-      script: 'pnpm version minor && git commit -am "chore: bump minor version" && git push && git push --tags'
+      script: 'pnpm version minor && git commit -am "chore: bump minor version" '
       description: 🆙 Повышение minor-версии
 
     major:
-      script: 'pnpm version major && git commit -am "chore: bump major version" && git push && git push --tags'
+      script: 'pnpm version major && git commit -am "chore: bump major version" '
       description: 🚀 Повышение major-версии
 
     beta:
-      script: 'pnpm version prerelease --preid=beta && git commit -am "chore: bump beta version" && git push && git push --tags'
+      script: 'pnpm version prerelease --preid=beta && git commit -am "chore: bump beta version" '
       description: 🧪 Выпуск beta-версии
 
     alpha:
-      script: 'pnpm version prerelease --preid=alpha && git commit -am "chore: bump alpha version" && git push && git push --tags'
+      script: 'pnpm version prerelease --preid=alpha && git commit -am "chore: bump alpha version" '
       description: 🧬 Выпуск alpha-версии
 
     rc:
-      script: 'pnpm version prerelease --preid=rc && git commit -am "chore: bump rc version" && git push && git push --tags'
+      script: 'pnpm version prerelease --preid=rc && git commit -am "chore: bump rc version" '
       description: 🏁 Выпуск release candidate
 
     preminorBeta:
-      script: 'pnpm version preminor --preid=beta && git commit -am "chore: bump preminor beta version" && git push && git push --tags'
+      script: 'pnpm version preminor --preid=beta && git commit -am "chore: bump preminor beta version" '
       description: ⚗️ Выпуск preminor beta-версии
