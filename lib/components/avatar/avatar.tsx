@@ -1,10 +1,11 @@
-import React, { CSSProperties, ComponentPropsWithoutRef, useState } from 'react'
+import React, { ComponentPropsWithoutRef, CSSProperties, useState } from 'react'
 
-import { getAvatarFallbackText } from './getAvatarFallbackText'
 import { Fallback, Image, Root } from '@radix-ui/react-avatar'
 import { clsx } from 'clsx'
 
 import s from './avatar.module.scss'
+
+import { getAvatarFallbackText } from './getAvatarFallbackText'
 
 export const Avatar: React.FC<AvatarProps> = props => {
   const {
@@ -29,8 +30,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
 
   type ImageLoadingStatus = 'error' | 'idle' | 'loaded' | 'loading'
 
-  const [loadingStatus, setLoadingStatus] =
-    useState<ImageLoadingStatus>('loading')
+  const [loadingStatus, setLoadingStatus] = useState<ImageLoadingStatus>('loading')
   const handleLoad = () => {
       setLoadingStatus('loaded')
       onLoadingStatusChange?.('loaded')

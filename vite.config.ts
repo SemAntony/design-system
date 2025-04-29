@@ -1,45 +1,49 @@
-import {join, resolve} from 'path'
-import tsconfigPaths from "vite-tsconfig-paths";
-import dts from "vite-plugin-dts";
-import {defineConfig} from 'vite'
+import { join, resolve } from 'path'
 
-import {dependencies, devDependencies} from './package.json'
-import viteReact from "@vitejs/plugin-react";
+import viteReact from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
+import tsconfigPaths from 'vite-tsconfig-paths'
+
+import { dependencies, devDependencies } from './package.json'
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-        viteReact(),
-        tsconfigPaths(),
-        dts(), // Output .d.ts files
-    ],
-    build: {
-        lib: {
-            // Could also be a dictionary or array of multiple entry points
-            entry: resolve(__dirname, join("lib", "index.ts")),
-            // the proper extensions will be added
-            fileName: (format) => `ui-core.${format}.js`,
-            // formats: ["es", "cjs", "umd"],
-            formats: ["es"],
-            name: 'ui-core',
-        },
-        rollupOptions: {
-            external: [
-                'react/jsx-runtime',
-                ...Object.keys(dependencies),
-                ...Object.keys(devDependencies),
-            ],
-            output: {
-                globals: {
-                    react: "React",
-                },
-            },
-        },
-        sourcemap: false,
-        target: 'esnext',
+  plugins: [
+    viteReact(),
+    tsconfigPaths(),
+    dts(), // Output .d.ts files
+  ],
+  build: {
+    lib: {
+      // Could also be a dictionary or array of multiple entry points
+      entry: resolve(__dirname, join('lib', 'index.ts')),
+      // the proper extensions will be added
+      name: 'ui-core',
+      fileName: format => `ui-core.${format}.js`,
+      // fileName: `ui-core`,
+      // formats: ["es", "cjs", "umd"],
+      formats: ['es'],
+
     },
-    resolve: {
-        alias: {
-            "@": resolve(__dirname, "lib"),
+    rollupOptions: {
+      external: [
+        'react/jsx-runtime',
+        ...Object.keys(dependencies),
+        ...Object.keys(devDependencies),
+      ],
+      output: {
+        globals: {
+          react: 'React',
+          'react/jsx-runtime': 'jsxRuntime',
         },
+      },
     },
+    sourcemap: false,
+    target: 'esnext',
+  },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'lib'),
+    },
+  },
 })
