@@ -35,9 +35,13 @@ scripts:
     script: storybook build
     description: 📘 Сборка Storybook
 
+  addChangeset:
+    script: 'git add . && read -p "Введите комментарий к коммиту: " msg && git commit -m "$msg"'
+    description: 📦 Добавление изменений с ручным комментарием
+
   version:
     patch:
-      script: 'pnpm version patch && git commit -am "chore: bump patch version" '
+      script: ' pnpm version patch  && git commit -am "chore: bump patch version" '
       description: 🔖 Повышение patch-версии
 
     minor:
