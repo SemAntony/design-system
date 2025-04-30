@@ -26,7 +26,7 @@
   },
   "include": [
     "lib",
-    "lib/scripts/generate-index.ts"
+    "scripts/generate-index.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

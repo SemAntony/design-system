@@ -38,7 +38,9 @@ scripts:
   addChangeset:
     script: 'git add . && read -p "Введите комментарий к коммиту: " msg && git commit -m "$msg"'
     description: 📦 Добавление изменений с ручным комментарием
-
+  gitCommit:
+    script: 'node scripts/git-commit-message.cjs'
+    description: 📮 Интерфейс для создания коммита
   version:
     patch:
       script: |

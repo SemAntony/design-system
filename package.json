@@ -32,6 +32,7 @@
   ],
   "scripts": {
     "nps": "nps",
+    "commit": "node scripts/git-commit-message.js",
     "generateIndex": "node scripts/generate-index.js",
     "build": "nps generateIndex && vite build && tsc"
   },
