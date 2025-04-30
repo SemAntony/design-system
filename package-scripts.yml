@@ -85,36 +85,120 @@ scripts:
 
     minor:
       script: |
-        export commit_message="chore: bump minor version"
-        {{common_script}}
+        git add .
+        # Проверка, были ли изменения в коде
+        if git diff --cached --quiet; then
+          git commit -m "chore: bump minor version"
+        else
+          # Проверка, добавлена ли новая фича или исправления
+          if git diff --cached | grep -q 'new feature'; then
+            git commit -m "feat: added new feature"
+          elif git diff --cached | grep -q 'fix'; then
+            git commit -m "fix: minor fixes"
+          else
+            git commit -m "chore: update dependencies or other changes"
+          fi
+        fi
+        git push git@github.com:SemAntony/design-system.git
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🆙 Повышение minor-версии
 
     major:
       script: |
-        export commit_message="chore: bump major version"
-        {{common_script}}
+        git add .
+        # Проверка, были ли изменения в коде
+        if git diff --cached --quiet; then
+          git commit -m "chore: bump major version"
+        else
+          # Проверка, добавлена ли новая фича или исправления
+          if git diff --cached | grep -q 'new feature'; then
+            git commit -m "feat: added new feature"
+          elif git diff --cached | grep -q 'fix'; then
+            git commit -m "fix: minor fixes"
+          else
+            git commit -m "chore: update dependencies or other changes"
+          fi
+        fi
+        git push git@github.com:SemAntony/design-system.git
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🚀 Повышение major-версии
 
     beta:
       script: |
-        export commit_message="chore: bump beta version"
-        {{common_script}}
+        git add .
+        # Проверка, были ли изменения в коде
+        if git diff --cached --quiet; then
+          git commit -m "chore: bump beta version"
+        else
+          # Проверка, добавлена ли новая фича или исправления
+          if git diff --cached | grep -q 'new feature'; then
+            git commit -m "feat: added new feature"
+          elif git diff --cached | grep -q 'fix'; then
+            git commit -m "fix: minor fixes"
+          else
+            git commit -m "chore: update dependencies or other changes"
+          fi
+        fi
+        git push git@github.com:SemAntony/design-system.git
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🧪 Выпуск beta-версии
 
     alpha:
       script: |
-        export commit_message="chore: bump alpha version"
-        {{common_script}}
+        git add .
+        # Проверка, были ли изменения в коде
+        if git diff --cached --quiet; then
+          git commit -m "chore: bump alpha version"
+        else
+          # Проверка, добавлена ли новая фича или исправления
+          if git diff --cached | grep -q 'new feature'; then
+            git commit -m "feat: added new feature"
+          elif git diff --cached | grep -q 'fix'; then
+            git commit -m "fix: minor fixes"
+          else
+            git commit -m "chore: update dependencies or other changes"
+          fi
+        fi
+        git push git@github.com:SemAntony/design-system.git
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🧬 Выпуск alpha-версии
 
     rc:
       script: |
-        export commit_message="chore: bump rc version"
-        {{common_script}}
+        git add .
+        # Проверка, были ли изменения в коде
+        if git diff --cached --quiet; then
+          git commit -m "chore: bump rc version"
+        else
+          # Проверка, добавлена ли новая фича или исправления
+          if git diff --cached | grep -q 'new feature'; then
+            git commit -m "feat: added new feature"
+          elif git diff --cached | grep -q 'fix'; then
+            git commit -m "fix: minor fixes"
+          else
+            git commit -m "chore: update dependencies or other changes"
+          fi
+        fi
+        git push git@github.com:SemAntony/design-system.git
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🏁 Выпуск release candidate
 
     preminorBeta:
       script: |
-        export commit_message="chore: bump preminor beta version"
-        {{common_script}}
+        git add .
+        # Проверка, были ли изменения в коде
+        if git diff --cached --quiet; then
+          git commit -m "chore: bump preminor beta version"
+        else
+          # Проверка, добавлена ли новая фича или исправления
+          if git diff --cached | grep -q 'new feature'; then
+            git commit -m "feat: added new feature"
+          elif git diff --cached | grep -q 'fix'; then
+            git commit -m "fix: minor fixes"
+          else
+            git commit -m "chore: update dependencies or other changes"
+          fi
+        fi
+        git push git@github.com:SemAntony/design-system.git
+        git push git@github.com:SemAntony/design-system.git --tags
       description: ⚗️ Выпуск preminor beta-версии
