@@ -160,37 +160,37 @@ nps gitCommit
 - <span style="color: green;">To bump the patch version</span>
 
 ```bash
-nps version patch
+nps version.patch
 ```
 
 - <span style="color: green;">To bump the minor version</span>
 
 ```bash
-nps version minor
+nps version.minor
 ```
 
 - <span style="color: green;">To bump the major version</span>
 
 ```bash
-nps version major
+nps version.major
 ```
 
 - <span style="color: green;">To release a beta version</span>
 
 ```bash
-nps version beta
+nps version.beta
 ```
 
 - <span style="color: green;">To release an alpha version</span>
 
 ```bash
-nps version alpha
+nps version.alpha
 ```
 
 - <span style="color: green;">To release a release candidate</span>
 
 ```bash
-nps version rc
+nps version.rc
 ```
 
 ## 🛠 Support and Questions
