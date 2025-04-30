@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/SemAntony/design-system#readme",
   "private": false,
-  "version": "1.0.1-rc.0",
+  "version": "1.0.1-beta.0",
   "type": "module",
   "main": "dist/ui-core.es.js",
   "module": "dist/ui-core.es.js",
