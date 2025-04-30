@@ -40,7 +40,7 @@ pnpm install
   ```
 
 | Script                                | Command              | Description                                                                     |
-|---------------------------------------|----------------------|---------------------------------------------------------------------------------|
+| ------------------------------------- | -------------------- | ------------------------------------------------------------------------------- |
 | **START AND DEVELOPMENT**             |                      |                                                                                 |
 | Start                                 | `nps start`          | 🚀 Start Vite dev server                                                        |
 | Storybook Dev                         | `nps dev`            | 📘 Launch Storybook on port 6006                                                |
@@ -62,31 +62,31 @@ pnpm install
 | Add Changeset                         | `nps addChangeset`   | 📦 Add a changeset with a manual description                                    |
 | Git Commit                            | `nps gitCommit`      | 📮 Use an interface for creating a git commit                                   |
 | **VERSIONS AND RELEASES**             |                      |                                                                                 |
-| Version Patch                         | `nps version patch`  | 🔖 Bump the patch version                                                       |
-| Version Minor                         | `nps version minor`  | 🆙 Bump the minor version                                                       |
-| Version Major                         | `nps version major`  | 🚀 Bump the major version                                                       |
-| Version Beta                          | `nps version beta`   | 🧪 Release a beta version                                                       |
-| Version Alpha                         | `nps version alpha`  | 🧬 Release an alpha version                                                     |
-| Version RC                            | ```nps version rc``` | 🧪 Release a release candidate version                                          |
+| Version Patch                         | `nps version.patch`  | 🔖 Bump the patch version                                                       |
+| Version Minor                         | `nps version.minor`  | 🆙 Bump the minor version                                                       |
+| Version Major                         | `nps version.major`  | 🚀 Bump the major version                                                       |
+| Version Beta                          | `nps version.beta`   | 🧪 Release a beta version                                                       |
+| Version Alpha                         | `nps version.alpha`  | 🧬 Release an alpha version                                                     |
+| Version RC                            | `nps version.rc`     | 🧪 Release a release candidate version                                          |
 
 ## 📚 Usage commands
 
-* <span style="color: green;">To run the project in development mode</span>
+- <span style="color: green;">To run the project in development mode</span>
 
 ```bash
 nps start
 ```
 
-* <span style="color: green;">To run storybook</span>
+- <span style="color: green;">To run storybook</span>
 
 ```bash
 nps dev
 ```
 
-* <span style="color: green;">To preview the built project</span>
+- <span style="color: green;">To preview the built project</span>
 
 ```bash
-nps preview 
+nps preview
 ```
 
 - <span style="color: green;">To build the project</span>
@@ -200,4 +200,3 @@ nps version.rc
 ### an [issue on GitHub](https://github.com/SemAntony/design-system/issues) .
 
 ### You can find the full source code of the library [here](https://github.com/SemAntony/design-system).
-
