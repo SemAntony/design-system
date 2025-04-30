@@ -23,6 +23,7 @@ const StyledButton = styled.button<{ variant: ButtonVariant }>`
   cursor: pointer;
   box-sizing: border-box;
   padding: 0.5rem 1rem;
+  
   border-radius: 0.25rem;
 
   &:focus-visible {
