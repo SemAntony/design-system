@@ -1,26 +1,26 @@
 scripts:
   start:
-    script: vite
+    script: 'vite'
     description: 🚀 Запуск Vite dev-сервера
 
   dev:
-    script: storybook dev -p 6006
+    script: 'storybook dev -p 6006'
     description: 📘 Запуск Storybook на порту 6006
 
   prebuild:
-    script: rm -rf dist
+    script: 'rm -rf dist'
     description: 🧨 Очистка папки dist перед сборкой
 
-  generate-index:
-    script: node lib/scripts/generate-index.js
+  generateIndex:
+    script: 'node lib/scripts/generate-index.js'
     description: 📄 Генерация общего index-файла для компонентов
 
   build:
-    script: 'pnpm run generate-index && vite build && tsc'
-    description: 📦 Сборка проекта (index, vite, tsc)
+    script: 'pnpm run generateIndex && vite build && tsc'
+    description: '📦 Сборка проекта (index, vite, tsc)'
 
   preview:
-    script: vite preview
+    script: 'vite preview'
     description: 👀 Просмотр собранного проекта
 
   lint:
@@ -32,7 +32,7 @@ scripts:
     description: 🧹 Линтинг с авто-фиксом
 
   buildStorybook:
-    script: storybook build
+    script: 'storybook build'
     description: 📘 Сборка Storybook
 
   addChangeset:
@@ -42,10 +42,7 @@ scripts:
   version:
     patch:
       script: |
-        # Проверка изменений в проекте
         changes=$(git diff --name-only --cached)
-
-        # Автоматическое определение типа изменения
         if echo "$changes" | grep -q "src/"; then
           commit_message="feat: новые функции или изменения в исходных файлах"
         elif echo "$changes" | grep -q "test/"; then
@@ -55,22 +52,15 @@ scripts:
         else
           commit_message="chore: коммит изменений"
         fi
-
-        # Запрос на ввод комментария, если пользователь хочет изменить предложенный
         echo "Предложенный комментарий: $commit_message"
         read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
         commit_message="${user_commit_message:-$commit_message}"
-
-        # Выполнение коммита и версии
         git add . && git commit -m "$commit_message" && pnpm version patch && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
       description: 🔖 Повышение patch-версии
 
     minor:
       script: |
-        # Проверка изменений в проекте
         changes=$(git diff --name-only --cached)
-
-        # Автоматическое определение типа изменения
         if echo "$changes" | grep -q "src/"; then
           commit_message="feat: новые функции или изменения в исходных файлах"
         elif echo "$changes" | grep -q "test/"; then
@@ -80,22 +70,15 @@ scripts:
         else
           commit_message="chore: коммит изменений"
         fi
-
-        # Запрос на ввод комментария, если пользователь хочет изменить предложенный
         echo "Предложенный комментарий: $commit_message"
         read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
         commit_message="${user_commit_message:-$commit_message}"
-
-        # Выполнение коммита и версии
         git add . && git commit -m "$commit_message" && pnpm version minor && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
       description: 🆙 Повышение minor-версии
 
     major:
       script: |
-        # Проверка изменений в проекте
         changes=$(git diff --name-only --cached)
-
-        # Автоматическое определение типа изменения
         if echo "$changes" | grep -q "src/"; then
           commit_message="feat: новые функции или изменения в исходных файлах"
         elif echo "$changes" | grep -q "test/"; then
@@ -105,22 +88,15 @@ scripts:
         else
           commit_message="chore: коммит изменений"
         fi
-
-        # Запрос на ввод комментария, если пользователь хочет изменить предложенный
         echo "Предложенный комментарий: $commit_message"
         read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
         commit_message="${user_commit_message:-$commit_message}"
-
-        # Выполнение коммита и версии
         git add . && git commit -m "$commit_message" && pnpm version major && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
       description: 🚀 Повышение major-версии
 
     beta:
       script: |
-        # Проверка изменений в проекте
         changes=$(git diff --name-only --cached)
-
-        # Автоматическое определение типа изменения
         if echo "$changes" | grep -q "src/"; then
           commit_message="feat: новые функции или изменения в исходных файлах"
         elif echo "$changes" | grep -q "test/"; then
@@ -130,22 +106,15 @@ scripts:
         else
           commit_message="chore: коммит изменений"
         fi
-
-        # Запрос на ввод комментария, если пользователь хочет изменить предложенный
         echo "Предложенный комментарий: $commit_message"
         read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
         commit_message="${user_commit_message:-$commit_message}"
-
-        # Выполнение коммита и версии
         git add . && git commit -m "$commit_message" && pnpm version prerelease --preid=beta && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
       description: 🧪 Выпуск beta-версии
 
     alpha:
       script: |
-        # Проверка изменений в проекте
         changes=$(git diff --name-only --cached)
-
-        # Автоматическое определение типа изменения
         if echo "$changes" | grep -q "src/"; then
           commit_message="feat: новые функции или изменения в исходных файлах"
         elif echo "$changes" | grep -q "test/"; then
@@ -155,22 +124,15 @@ scripts:
         else
           commit_message="chore: коммит изменений"
         fi
-
-        # Запрос на ввод комментария, если пользователь хочет изменить предложенный
         echo "Предложенный комментарий: $commit_message"
         read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
         commit_message="${user_commit_message:-$commit_message}"
-
-        # Выполнение коммита и версии
         git add . && git commit -m "$commit_message" && pnpm version prerelease --preid=alpha && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
       description: 🧬 Выпуск alpha-версии
 
     rc:
       script: |
-        # Проверка изменений в проекте
         changes=$(git diff --name-only --cached)
-
-        # Автоматическое определение типа изменения
         if echo "$changes" | grep -q "src/"; then
           commit_message="feat: новые функции или изменения в исходных файлах"
         elif echo "$changes" | grep -q "test/"; then
@@ -180,11 +142,8 @@ scripts:
         else
           commit_message="chore: коммит изменений"
         fi
-
-        # Запрос на ввод комментария, если пользователь хочет изменить предложенный
         echo "Предложенный комментарий: $commit_message"
         read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
         commit_message="${user_commit_message:-$commit_message}"
-
-        # Выполнение коммита и версии
-        git add . && git commit -m "$commit_message" && pnpm version prerelease --preid=rc && git push git@github.com:SemAntony
+        git add . && git commit -m "$commit_message" && pnpm version prerelease --preid=rc && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
+      description: 🧪 Выпуск RC-версии
