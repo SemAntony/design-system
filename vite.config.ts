@@ -8,11 +8,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import { dependencies, devDependencies } from './package.json'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    viteReact(),
-    tsconfigPaths(),
-    dts(),
-  ],
+  plugins: [viteReact(), tsconfigPaths(), dts()],
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points

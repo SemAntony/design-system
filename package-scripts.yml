@@ -13,10 +13,10 @@ scripts:
 
   generateIndex:
     script: 'node lib/scripts/generate-index.js'
-    description: 📄 Генерация общего index-файла для компонентов
+    description: '📄 Генерация общего index-файла для компонентов'
 
   build:
-    script: 'pnpm run generateIndex && vite build && tsc'
+    script: 'nps generateIndex && vite build && tsc'
     description: '📦 Сборка проекта (index, vite, tsc)'
 
   preview:

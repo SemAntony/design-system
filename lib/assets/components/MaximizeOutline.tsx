@@ -1,9 +1,6 @@
 import type { SVGProps } from 'react'
 import { Ref, forwardRef, memo } from 'react'
-const SvgMaximizeOutline = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>
-) => (
+const SvgMaximizeOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     ref={ref}
@@ -18,9 +15,7 @@ const SvgMaximizeOutline = (
         }
       />
       <path
-        d={
-          'M13 10h-1V9a1 1 0 0 0-2 0v1H9a1 1 0 0 0 0 2h1v1a1 1 0 0 0 2 0v-1h1a1 1 0 0 0 0-2'
-        }
+        d={'M13 10h-1V9a1 1 0 0 0-2 0v1H9a1 1 0 0 0 0 2h1v1a1 1 0 0 0 2 0v-1h1a1 1 0 0 0 0-2'}
       />
     </g>
     <defs>

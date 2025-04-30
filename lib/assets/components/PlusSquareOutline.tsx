@@ -1,9 +1,6 @@
 import type { SVGProps } from 'react'
 import { Ref, forwardRef, memo } from 'react'
-const SvgPlusSquareOutline = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>
-) => (
+const SvgPlusSquareOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     ref={ref}
@@ -18,9 +15,7 @@ const SvgPlusSquareOutline = (
         }
       />
       <path
-        d={
-          'M15 11h-2V9a1 1 0 0 0-2 0v2H9a1 1 0 0 0 0 2h2v2a1 1 0 0 0 2 0v-2h2a1 1 0 0 0 0-2'
-        }
+        d={'M15 11h-2V9a1 1 0 0 0-2 0v2H9a1 1 0 0 0 0 2h2v2a1 1 0 0 0 2 0v-2h2a1 1 0 0 0 0-2'}
       />
     </g>
     <defs>

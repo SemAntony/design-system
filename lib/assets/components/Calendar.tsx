@@ -1,9 +1,6 @@
 import type { SVGProps } from 'react'
 import { Ref, forwardRef, memo } from 'react'
-const SvgCalendar = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>
-) => (
+const SvgCalendar = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     ref={ref}
