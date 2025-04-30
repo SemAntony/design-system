@@ -41,7 +41,7 @@ scripts:
 
   version:
     patch:
-      script: ' pnpm version patch  && git commit -am "chore: bump patch version" '
+      script: ' pnpm version patch  && git commit -am "chore: bump patch version"  && git push && git push --tags'
       description: 🔖 Повышение patch-версии
 
     minor:
