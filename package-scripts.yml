@@ -60,7 +60,26 @@ scripts:
 
     patch:
       script: |
-        export commit_message="chore: commit changes before version bump" 
+        # Проверка изменений в проекте
+        changes=$(git diff --name-only --cached)
+
+        # Автоматическое определение типа изменения
+        if echo "$changes" | grep -q "src/"; then
+          commit_message="feat: новые функции или изменения в исходных файлах"
+        elif echo "$changes" | grep -q "test/"; then
+          commit_message="test: изменения в тестах"
+        elif echo "$changes" | grep -q "fix"; then
+          commit_message="fix: исправления багов"
+        else
+          commit_message="chore: коммит изменений"
+        fi
+
+        # Запрос на ввод комментария, если пользователь хочет изменить предложенный
+        echo "Предложенный комментарий: $commit_message"
+        read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
+        commit_message="${user_commit_message:-$commit_message}"
+
+        # Выполнение коммита и версии
         git add . && git commit -m "$commit_message" && pnpm version patch && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
       description: 🔖 Повышение patch-версии
 
