@@ -1,149 +1,116 @@
 scripts:
+  # ▶️ START AND DEVELOPMENT
   start:
     script: 'vite'
-    description: 🚀 Запуск Vite dev-сервера
+    description: '🚀 Запуск Vite dev-сервера'
 
   dev:
     script: 'storybook dev -p 6006'
-    description: 📘 Запуск Storybook на порту 6006
+    description: '📘 Запуск Storybook на порту 6006'
 
+  preview:
+    script: 'vite preview'
+    description: '👀 Просмотр собранного проекта'
+
+  buildStorybook:
+    script: 'storybook build'
+    description: '📘 Сборка Storybook'
+
+  # 🧹 ФОРМАТИРОВАНИЕ И ЛИНТИНГ
+  format:
+    script: 'prettier --write .'
+    description: '🎨 Форматирование проекта с помощью Prettier'
+
+  lint:
+    script: 'eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0'
+    description: '🔍 Линтинг проекта'
+
+  lintFix:
+    script: 'eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix'
+    description: '🧹 Линтинг с авто-фиксом'
+
+  # 🧪 ТЕСТИРОВАНИЕ
+  test:
+    script: 'vitest run'
+    description: '🧪 Запуск тестов через Vitest'
+
+  # ⚙️ СБОРКА И ПОДГОТОВКА
   prebuild:
     script: 'rm -rf dist'
-    description: 🧨 Очистка папки dist перед сборкой
+    description: '🧨 Очистка папки dist перед сборкой'
 
   generateIndex:
-    script: 'node lib/scripts/generate-index.js'
+    script: 'node scripts/generate-index.js'
     description: '📄 Генерация общего index-файла для компонентов'
 
   build:
     script: 'nps generateIndex && vite build && tsc'
-    description: '📦 Сборка проекта (index, vite, tsc)'
+    description: '📦 Полная сборка проекта: index, Vite и TypeScript'
 
-  preview:
-    script: 'vite preview'
-    description: 👀 Просмотр собранного проекта
+  # 🧭 ПРОЦЕСС ВЕРСИОНИРОВАНИЯ
+  preversion:
+    script: |
+      echo "📦 Подготовка перед bump версией..." && \
+      nps format && \
+      nps lintFix && \
+      nps generateIndex
+    description: '⚙️ Подготовительные задачи перед bump-версией'
 
-  lint:
-    script: 'eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0'
-    description: 🔍 Линтинг проекта
-
-  lintFix:
-    script: 'eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix'
-    description: 🧹 Линтинг с авто-фиксом
-
-  buildStorybook:
-    script: 'storybook build'
-    description: 📘 Сборка Storybook
-
+  # 📝 КОММИТЫ И ИЗМЕНЕНИЯ
   addChangeset:
     script: 'git add . && read -p "Введите комментарий к коммиту: " msg && git commit -m "$msg"'
-    description: 📦 Добавление изменений с ручным комментарием
+    description: '📦 Добавление изменений с ручным комментарием'
 
+  gitCommit:
+    script: 'node scripts/git-commit-message.cjs'
+    description: '📮 Интерфейс для создания коммита'
+
+  # 🔖 ВЕРСИИ И РЕЛИЗЫ
   version:
     patch:
       script: |
-        changes=$(git diff --name-only --cached)
-        if echo "$changes" | grep -q "src/"; then
-          commit_message="feat: новые функции или изменения в исходных файлах"
-        elif echo "$changes" | grep -q "test/"; then
-          commit_message="test: изменения в тестах"
-        elif echo "$changes" | grep -q "fix"; then
-          commit_message="fix: исправления багов"
-        else
-          commit_message="chore: коммит изменений"
-        fi
-        echo "Предложенный комментарий: $commit_message"
-        read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
-        commit_message="${user_commit_message:-$commit_message}"
-        git add . && git commit -m "$commit_message" && pnpm version patch && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
-      description: 🔖 Повышение patch-версии
+        node scripts/git-commit-message.cjs && \
+        pnpm version patch && \
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
+      description: '🔖 Повышение patch-версии'
 
     minor:
       script: |
-        changes=$(git diff --name-only --cached)
-        if echo "$changes" | grep -q "src/"; then
-          commit_message="feat: новые функции или изменения в исходных файлах"
-        elif echo "$changes" | grep -q "test/"; then
-          commit_message="test: изменения в тестах"
-        elif echo "$changes" | grep -q "fix"; then
-          commit_message="fix: исправления багов"
-        else
-          commit_message="chore: коммит изменений"
-        fi
-        echo "Предложенный комментарий: $commit_message"
-        read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
-        commit_message="${user_commit_message:-$commit_message}"
-        git add . && git commit -m "$commit_message" && pnpm version minor && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
-      description: 🆙 Повышение minor-версии
+        node scripts/git-commit-message.cjs && \
+        pnpm version minor && \
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
+      description: '🆙 Повышение minor-версии'
 
     major:
       script: |
-        changes=$(git diff --name-only --cached)
-        if echo "$changes" | grep -q "src/"; then
-          commit_message="feat: новые функции или изменения в исходных файлах"
-        elif echo "$changes" | grep -q "test/"; then
-          commit_message="test: изменения в тестах"
-        elif echo "$changes" | grep -q "fix"; then
-          commit_message="fix: исправления багов"
-        else
-          commit_message="chore: коммит изменений"
-        fi
-        echo "Предложенный комментарий: $commit_message"
-        read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
-        commit_message="${user_commit_message:-$commit_message}"
-        git add . && git commit -m "$commit_message" && pnpm version major && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
-      description: 🚀 Повышение major-версии
+        node scripts/git-commit-message.cjs && \
+        pnpm version major && \
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
+      description: '🚀 Повышение major-версии'
 
     beta:
       script: |
-        changes=$(git diff --name-only --cached)
-        if echo "$changes" | grep -q "src/"; then
-          commit_message="feat: новые функции или изменения в исходных файлах"
-        elif echo "$changes" | grep -q "test/"; then
-          commit_message="test: изменения в тестах"
-        elif echo "$changes" | grep -q "fix"; then
-          commit_message="fix: исправления багов"
-        else
-          commit_message="chore: коммит изменений"
-        fi
-        echo "Предложенный комментарий: $commit_message"
-        read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
-        commit_message="${user_commit_message:-$commit_message}"
-        git add . && git commit -m "$commit_message" && pnpm version prerelease --preid=beta && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
-      description: 🧪 Выпуск beta-версии
+        node scripts/git-commit-message.cjs && \
+        pnpm version prerelease --preid=beta && \
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
+      description: '🧪 Выпуск beta-версии'
 
     alpha:
       script: |
-        changes=$(git diff --name-only --cached)
-        if echo "$changes" | grep -q "src/"; then
-          commit_message="feat: новые функции или изменения в исходных файлах"
-        elif echo "$changes" | grep -q "test/"; then
-          commit_message="test: изменения в тестах"
-        elif echo "$changes" | grep -q "fix"; then
-          commit_message="fix: исправления багов"
-        else
-          commit_message="chore: коммит изменений"
-        fi
-        echo "Предложенный комментарий: $commit_message"
-        read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
-        commit_message="${user_commit_message:-$commit_message}"
-        git add . && git commit -m "$commit_message" && pnpm version prerelease --preid=alpha && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
-      description: 🧬 Выпуск alpha-версии
+        node scripts/git-commit-message.cjs && \
+        pnpm version prerelease --preid=alpha && \
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
+      description: '🧬 Выпуск alpha-версии'
 
     rc:
       script: |
-        changes=$(git diff --name-only --cached)
-        if echo "$changes" | grep -q "src/"; then
-          commit_message="feat: новые функции или изменения в исходных файлах"
-        elif echo "$changes" | grep -q "test/"; then
-          commit_message="test: изменения в тестах"
-        elif echo "$changes" | grep -q "fix"; then
-          commit_message="fix: исправления багов"
-        else
-          commit_message="chore: коммит изменений"
-        fi
-        echo "Предложенный комментарий: $commit_message"
-        read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
-        commit_message="${user_commit_message:-$commit_message}"
-        git add . && git commit -m "$commit_message" && pnpm version prerelease --preid=rc && git push git@github.com:SemAntony/design-system.git && git push git@github.com:SemAntony/design-system.git --tags
-      description: 🧪 Выпуск RC-версии
+        node scripts/git-commit-message.cjs && \
+        pnpm version prerelease --preid=rc && \
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
+      description: '🧪 Выпуск RC-версии'

@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/SemAntony/design-system#readme",
   "private": false,
-  "version": "1.0.1-rc.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "dist/ui-core.es.js",
   "module": "dist/ui-core.es.js",
@@ -32,8 +32,10 @@
   ],
   "scripts": {
     "nps": "nps",
+    "commit": "node scripts/git-commit-message.js",
     "generateIndex": "node scripts/generate-index.js",
-    "build": "nps generateIndex && vite build && tsc"
+    "build": "nps generateIndex && vite build && tsc",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.7",
