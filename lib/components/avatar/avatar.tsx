@@ -32,9 +32,6 @@ export const Avatar: React.FC<AvatarProps> = props => {
 
   const [loadingStatus, setLoadingStatus] = useState<ImageLoadingStatus>('loading')
 
-
-
-
   const handleLoad = () => {
       setLoadingStatus('loaded')
       onLoadingStatusChange?.('loaded')

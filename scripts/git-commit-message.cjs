@@ -6,7 +6,7 @@ const readline = require('readline');
 const changes = execSync('git diff --name-only --cached').toString();
 
 let defaultMessage = 'chore: коммит изменений';
-if (/^src\//m.test(changes)) {
+if (/^lib\//m.test(changes)) {
     defaultMessage = 'feat: новые функции или изменения в исходных файлах';
 } else if (/^test\//m.test(changes)) {
     defaultMessage = 'test: изменения в тестах';

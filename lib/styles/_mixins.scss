@@ -28,11 +28,7 @@
   color: $color;
 }
 
-@mixin typography-without-color(
-  $fontSize: null,
-  $fontWeight: null,
-  $lineHeight: null
-) {
+@mixin typography-without-color($fontSize: null, $fontWeight: null, $lineHeight: null) {
   margin: 0;
   font-size: $fontSize;
   font-weight: $fontWeight;

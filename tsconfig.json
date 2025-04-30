@@ -6,7 +6,8 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "paths": {
-      "ui-core": ["./lib/index.ts"],},
+      "ui-core": ["./lib/index.ts"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -24,9 +25,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "lib",
-    "scripts/generate-index.ts"
-  ],
+  "include": ["lib", "scripts/generate-index.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

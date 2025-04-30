@@ -34,7 +34,8 @@
     "nps": "nps",
     "commit": "node scripts/git-commit-message.js",
     "generateIndex": "node scripts/generate-index.js",
-    "build": "nps generateIndex && vite build && tsc"
+    "build": "nps generateIndex && vite build && tsc",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.7",
