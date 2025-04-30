@@ -46,47 +46,47 @@ scripts:
       script: |
         node scripts/git-commit-message.cjs && \
         pnpm version patch && \
-        git push && \
-        git push --tags
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🔖 Повышение patch-версии
 
     minor:
       script: |
         node scripts/git-commit-message.cjs && \
         pnpm version minor && \
-        git push && \
-        git push --tags
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🆙 Повышение minor-версии
 
     major:
       script: |
         node scripts/git-commit-message.cjs && \
         pnpm version major && \
-        git push && \
-        git push --tags
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🚀 Повышение major-версии
 
     beta:
       script: |
         node scripts/git-commit-message.cjs && \
         pnpm version prerelease --preid=beta && \
-        git push && \
-        git push --tags
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🧪 Выпуск beta-версии
 
     alpha:
       script: |
         node scripts/git-commit-message.cjs && \
         pnpm version prerelease --preid=alpha && \
-        git push && \
-        git push --tags
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🧬 Выпуск alpha-версии
 
     rc:
       script: |
         node scripts/git-commit-message.cjs && \
         pnpm version prerelease --preid=rc && \
-        git push && \
-        git push --tags
+        git push git@github.com:SemAntony/design-system.git && \
+        git push git@github.com:SemAntony/design-system.git --tags
       description: 🧪 Выпуск RC-версии
 
