@@ -20,12 +20,9 @@ export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) 
 
 const StyledButton = styled.button<{ variant: ButtonVariant }>`
   all: unset;
-
   cursor: pointer;
-
   box-sizing: border-box;
   padding: 0.5rem 1rem;
-
   border-radius: 0.25rem;
 
   &:focus-visible {
