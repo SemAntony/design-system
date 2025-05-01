@@ -4,72 +4,64 @@
 
 ## 📚 Installation of the library
 
+* pnpm
+
 ```bash
 pnpm add @sem.antony/design-system
 ```
 
-## 📦 installation
-
-- Install dependencies:
+* yarn
 
 ```bash
-pnpm install
+yarn add @sem.antony/design-system
 ```
 
-- Clone template: (replace `my-lib` with your project name)
+* npm
 
-  ```bash
-  npx degit https://github.com/SemAntony/desing-system my-lib
-  ```
+```bash
+npm i @sem.antony/design-system
+```
 
-- Change directory: (replace `my-lib` with your project name)
+***************************************************************************************************************
 
-  ```bash
-  cd my-lib
-  ```
+***************************************************************************************************************
 
-- Install dependencies:
+## 📚 Usage
 
-  ```bash
-  pnpm i
-  ```
+ 
+| Script                     | Command              | Description                                              |
+|----------------------------|----------------------|----------------------------------------------------------|
+| **START AND DEVELOPMENT**  |                      |                                                          |
+| Start                      | `nps start`          | 🚀 Start Vite dev server                                 |
+| Storybook Dev              | `nps dev`            | 📘 Launch Storybook on port 6006                         |
+| Preview                    | `nps preview`        | 👀 Preview the built project                             |
+| Build Storybook            | `nps buildStorybook` | 📘 Build Storybook                                       |
+| **FORMATTING AND LINTING** |                      |                                                          |
+| Format                     | `nps format`         | 🎨 Format the project using Prettier                     |
+| Lint                       | `nps lint`           | 🔍 Lint the project                                      |
+| LintFix                    | `nps lintFix`        | 🧹 Lint with auto-fix                                    |
+| **TESTING**                |                      |                                                          |
+| Test                       | `nps test`           | 🧪 Run tests using Vitest ***not implemented yet!***     |
+| **BUILD AND PREPARATION**  |                      |                                                          |
+| Prebuild                   | `nps prebuild`       | 🧨 Clean the `dist` folder before build                  |
+| Generate Index             | `nps generateIndex`  | 📄 Generate a shared index file for components           |
+| Build                      | `nps build`          | 📦 Full project build: `index`, `Vite`, and `TypeScript` |
+| **VERSIONING PROCESS**     |                      |                                                          |
+| Preversion                 | `nps preversion`     | ⚙️ Tasks to run before bumping the version               |
+| **COMMITS AND CHANGES**    |                      |                                                          |
+| Add Changeset              | `nps addChangeset`   | 📦 Add a changeset with a manual description             |
+| Git Commit                 | `nps gitCommit`      | 📮 Use an interface for creating a git commit            |
+| **VERSIONS AND RELEASES**  |                      |                                                          |
+| Version Patch              | `nps version.patch`  | 🔖 Bump the patch version                                |
+| Version Minor              | `nps version.minor`  | 🆙 Bump the minor version                                |
+| Version Major              | `nps version.major`  | 🚀 Bump the major version                                |
+| Version Beta               | `nps version.beta`   | 🧪 Release a beta version                                |
+| Version Alpha              | `nps version.alpha`  | 🧬 Release an alpha version                              |
+| Version RC                 | `nps version.rc`     | 🧪 Release a release candidate version                   |
 
-- Run storybook:
+----------------------------------------------------------------------------------------------------------------------------------
 
-  ```bash
-  pnpm dev
-  ```
-
-| Script                                | Command              | Description                                                                     |
-| ------------------------------------- | -------------------- | ------------------------------------------------------------------------------- |
-| **START AND DEVELOPMENT**             |                      |                                                                                 |
-| Start                                 | `nps start`          | 🚀 Start Vite dev server                                                        |
-| Storybook Dev                         | `nps dev`            | 📘 Launch Storybook on port 6006                                                |
-| Preview                               | `nps preview`        | 👀 Preview the built project                                                    |
-| Build Storybook                       | `nps buildStorybook` | 📘 Build Storybook                                                              |
-| **FORMATTING AND LINTING**            |                      |                                                                                 |
-| Format                                | `nps format`         | 🎨 Format the project using Prettier                                            |
-| Lint                                  | `nps lint`           | 🔍 Lint the project                                                             |
-| LintFix                               | `nps lintFix`        | 🧹 Lint with auto-fix                                                           |
-| **TESTING**                           |                      |                                                                                 |
-| Test | `nps test`           | 🧪 Run tests using Vitest ***not implemented yet!*** |
-| **BUILD AND PREPARATION**             |                      |                                                                                 |
-| Prebuild                              | `nps prebuild`       | 🧨 Clean the `dist` folder before build                                         |
-| Generate Index                        | `nps generateIndex`  | 📄 Generate a shared index file for components                                  |
-| Build                                 | `nps build`          | 📦 Full project build: `index`, `Vite`, and `TypeScript`                        |
-| **VERSIONING PROCESS**                |                      |                                                                                 |
-| Preversion                            | `nps preversion`     | ⚙️ Tasks to run before bumping the version                                      |
-| **COMMITS AND CHANGES**               |                      |                                                                                 |
-| Add Changeset                         | `nps addChangeset`   | 📦 Add a changeset with a manual description                                    |
-| Git Commit                            | `nps gitCommit`      | 📮 Use an interface for creating a git commit                                   |
-| **VERSIONS AND RELEASES**             |                      |                                                                                 |
-| Version Patch                         | `nps version.patch`  | 🔖 Bump the patch version                                                       |
-| Version Minor                         | `nps version.minor`  | 🆙 Bump the minor version                                                       |
-| Version Major                         | `nps version.major`  | 🚀 Bump the major version                                                       |
-| Version Beta                          | `nps version.beta`   | 🧪 Release a beta version                                                       |
-| Version Alpha                         | `nps version.alpha`  | 🧬 Release an alpha version                                                     |
-| Version RC                            | `nps version.rc`     | 🧪 Release a release candidate version                                          |
-
+----------------------------------------------------------------------------------------------------------------------------------
 ## 📚 Usage commands
 
 - To run the project in development mode
@@ -134,7 +126,7 @@ nps test
 nps prebuild
 ```
 
-To generate a shared index file
+- To generate a shared index file
 
 ```bash
 nps generateIndex
@@ -193,6 +185,10 @@ nps version.alpha
 ```bash
 nps version.rc
 ```
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 ## 🛠 Support and Questions
 

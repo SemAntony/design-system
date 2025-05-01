@@ -16,9 +16,6 @@ const TypographyBase = <T extends React.ElementType = 'p'>(
     ...style,
   }
 
-  // if (Component === 'caption') {
-  //   return <caption style={styles}>{children}</caption>
-  // }
 
   return (
     <Component className={`${clsx(style[variant], className)}`} style={styles} {...rest}>
