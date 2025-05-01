@@ -1,6 +1,6 @@
 # 🧱 Design System
 
-#### Modular and expanded library of components created using Vite, Storybook and Typescript. Suitable for re-used UI elements in various projects.
+## Modular and expanded library of components created using Vite, Storybook and Typescript. Suitable for re-used UI elements in various projects
 
 ## 📚 Installation of the library
 
@@ -35,6 +35,7 @@ pnpm install
   ```
 
 - Run storybook:
+
   ```bash
   pnpm dev
   ```
@@ -51,7 +52,7 @@ pnpm install
 | Lint                                  | `nps lint`           | 🔍 Lint the project                                                             |
 | LintFix                               | `nps lintFix`        | 🧹 Lint with auto-fix                                                           |
 | **TESTING**                           |                      |                                                                                 |
-| <span style="color: red;">Test</span> | `nps test`           | 🧪 Run tests using Vitest <span style="color: red;">not implemented yet!</span> |
+| Test | `nps test`           | 🧪 Run tests using Vitest ***not implemented yet!*** |
 | **BUILD AND PREPARATION**             |                      |                                                                                 |
 | Prebuild                              | `nps prebuild`       | 🧨 Clean the `dist` folder before build                                         |
 | Generate Index                        | `nps generateIndex`  | 📄 Generate a shared index file for components                                  |
@@ -71,123 +72,123 @@ pnpm install
 
 ## 📚 Usage commands
 
-- <span style="color: green;">To run the project in development mode</span>
+- To run the project in development mode
 
 ```bash
 nps start
 ```
 
-- <span style="color: green;">To run storybook</span>
+- To run storybook
 
 ```bash
 nps dev
 ```
 
-- <span style="color: green;">To preview the built project</span>
+- To preview the built project
 
 ```bash
 nps preview
 ```
 
-- <span style="color: green;">To build the project</span>
+- To build the project
 
 ```bash
 nps build
 ```
 
-- <span style="color: green;">To build storybook</span>
+- To build storybook
 
 ```bash
 nps buildStorybook
 ```
 
-- <span style="color: green;">To format the project</span>
+- To format the project
 
 ```bash
 
 nps format
 ```
 
-- <span style="color: green;">To lint the project</span>
+- To lint the project
 
 ```bash
 
 nps lint
 ```
 
-- <span style="color: green;">To lint the project with auto-fix</span>
+- To lint the project with auto-fix
 
 ```bash
 nps lintFix
 ```
 
-- <span style="color: red;">To run tests(not implemented yet)</span>
+- To run tests(not implemented yet)
 
 ```bash
 nps test
 ```
 
-- <span style="color: green;">To clean the `dist` folder</span>
+- To clean the `dist` folder
 
 ```bash
 nps prebuild
 ```
 
-- <span style="color: green;">To generate a shared index file</span>
+To generate a shared index file
 
 ```bash
 nps generateIndex
 ```
 
-- <span style="color: green;">To run tasks before bumping the version</span>
+- To run tasks before bumping the version
 
 ```bash
 nps preversion
 ```
 
-- <span style="color: green;">To add a changeset</span>
+- To add a changeset
 
 ```bash
 nps addChangeset
 ```
 
-- <span style="color: green;">To use an interface for creating a git commit</span>
+- To use an interface for creating a git commit
 
 ```bash
 nps gitCommit
 ```
 
-- <span style="color: green;">To bump the patch version</span>
+- To bump the patch version
 
 ```bash
 nps version.patch
 ```
 
-- <span style="color: green;">To bump the minor version</span>
+- To bump the minor version
 
 ```bash
 nps version.minor
 ```
 
-- <span style="color: green;">To bump the major version</span>
+- To bump the major version
 
 ```bash
 nps version.major
 ```
 
-- <span style="color: green;">To release a beta version</span>
+- To release a beta version
 
 ```bash
 nps version.beta
 ```
 
-- <span style="color: green;">To release an alpha version</span>
+- To release an alpha version
 
 ```bash
 nps version.alpha
 ```
 
-- <span style="color: green;">To release a release candidate</span>
+- To release a release candidate
 
 ```bash
 nps version.rc
@@ -195,8 +196,6 @@ nps version.rc
 
 ## 🛠 Support and Questions
 
-### If you have any questions or suggestions for improvements, please open
+### If you have any questions or suggestions for improvements, please open an [issue on GitHub](https://github.com/SemAntony/design-system/issues)
 
-### an [issue on GitHub](https://github.com/SemAntony/design-system/issues) .
-
-### You can find the full source code of the library [here](https://github.com/SemAntony/design-system).
+### You can find the full source code of the library [here](https://github.com/SemAntony/design-system)
