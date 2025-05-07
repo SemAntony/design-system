@@ -16,8 +16,6 @@ export default defineConfig({
       // the proper extensions will be added
       name: 'ui-core',
       fileName: format => `ui-core.${format}.js`,
-      // fileName: `ui-core`,
-      // formats: ["es", "cjs", "umd"],
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

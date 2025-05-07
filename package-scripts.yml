@@ -2,70 +2,70 @@ scripts:
   # ▶️ START AND DEVELOPMENT
   start:
     script: 'vite'
-    description: '🚀 Запуск Vite dev-сервера'
+    description: '🚀 Launch of the Vite DEV server'
 
   dev:
     script: 'storybook dev -p 6006'
-    description: '📘 Запуск Storybook на порту 6006'
+    description: '📘 Storybook launch on port 6006'
 
   preview:
     script: 'vite preview'
-    description: '👀 Просмотр собранного проекта'
+    description: '👀 View the collected project'
 
   buildStorybook:
     script: 'storybook build'
-    description: '📘 Сборка Storybook'
+    description: '📘 Assembly Storybook'
 
-  # 🧹 ФОРМАТИРОВАНИЕ И ЛИНТИНГ
+  # 🧹 Formatting and linting
   format:
     script: 'prettier --write .'
-    description: '🎨 Форматирование проекта с помощью Prettier'
+    description: '🎨 Formatting of the project using Prettier'
 
   lint:
     script: 'eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0'
-    description: '🔍 Линтинг проекта'
+    description: '🔍 Project Linting'
 
   lintFix:
     script: 'eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix'
-    description: '🧹 Линтинг с авто-фиксом'
+    description: '🧹 Lint with auto-fix'
 
-  # 🧪 ТЕСТИРОВАНИЕ
+  # 🧪 TESTING
   test:
     script: 'vitest run'
-    description: '🧪 Запуск тестов через Vitest'
+    description: '🧪 Starting tests via Vitest'
 
-  # ⚙️ СБОРКА И ПОДГОТОВКА
+  # ⚙️ Assembly and preparation
   prebuild:
     script: 'rm -rf dist'
-    description: '🧨 Очистка папки dist перед сборкой'
+    description: '🧨 Dist cleaning before assembly'
 
   generateIndex:
     script: 'node scripts/generate-index.js'
-    description: '📄 Генерация общего index-файла для компонентов'
+    description: '📄 Generation of a common index file for components'
 
   build:
     script: 'nps generateIndex && vite build && tsc'
-    description: '📦 Полная сборка проекта: index, Vite и TypeScript'
+    description: '📦 Full assembly of the project: Index, Vite and Typescript'
 
-  # 🧭 ПРОЦЕСС ВЕРСИОНИРОВАНИЯ
+  # 🧭 VERSIFICATION PROCESS
   preversion:
     script: |
-      echo "📦 Подготовка перед bump версией..." && \
+      echo "📦 Preparation in front of the BUMP version..." && \
       nps format && \
       nps lintFix && \
       nps generateIndex
-    description: '⚙️ Подготовительные задачи перед bump-версией'
+    description: '⚙️ Preparatory tasks before the BUMP version'
 
-  # 📝 КОММИТЫ И ИЗМЕНЕНИЯ
+  # 📝 Commits and changes
   addChangeset:
-    script: 'git add . && read -p "Введите комментарий к коммиту: " msg && git commit -m "$msg"'
-    description: '📦 Добавление изменений с ручным комментарием'
+    script: 'git add . && read -p "Enter a comment on Commit: " msg && git commit -m "$msg"'
+    description: '📦 Adding changes with manual commentary'
 
   gitCommit:
     script: 'node scripts/git-commit-message.cjs'
-    description: '📮 Интерфейс для создания коммита'
+    description: '📮 Interface for creating a commune'
 
-  # 🔖 ВЕРСИИ И РЕЛИЗЫ
+  # 🔖 VERSIONS AND RELEASES
   version:
     patch:
       script: |
@@ -73,7 +73,7 @@ scripts:
         pnpm version patch && \
         git push git@github.com:SemAntony/design-system.git && \
         git push git@github.com:SemAntony/design-system.git --tags
-      description: '🔖 Повышение patch-версии'
+      description: '🔖 Improving PATCH version'
 
     minor:
       script: |
@@ -81,7 +81,7 @@ scripts:
         pnpm version minor && \
         git push git@github.com:SemAntony/design-system.git && \
         git push git@github.com:SemAntony/design-system.git --tags
-      description: '🆙 Повышение minor-версии'
+      description: '🆙 Improving minor version'
 
     major:
       script: |
@@ -89,7 +89,7 @@ scripts:
         pnpm version major && \
         git push git@github.com:SemAntony/design-system.git && \
         git push git@github.com:SemAntony/design-system.git --tags
-      description: '🚀 Повышение major-версии'
+      description: '🚀 Improving the Major version'
 
     beta:
       script: |
@@ -97,7 +97,7 @@ scripts:
         pnpm version prerelease --preid=beta && \
         git push git@github.com:SemAntony/design-system.git && \
         git push git@github.com:SemAntony/design-system.git --tags
-      description: '🧪 Выпуск beta-версии'
+      description: '🧪 Issue beta version'
 
     alpha:
       script: |
@@ -105,7 +105,7 @@ scripts:
         pnpm version prerelease --preid=alpha && \
         git push git@github.com:SemAntony/design-system.git && \
         git push git@github.com:SemAntony/design-system.git --tags
-      description: '🧬 Выпуск alpha-версии'
+      description: '🧬 Issue Alpha version'
 
     rc:
       script: |
@@ -113,4 +113,4 @@ scripts:
         pnpm version prerelease --preid=rc && \
         git push git@github.com:SemAntony/design-system.git && \
         git push git@github.com:SemAntony/design-system.git --tags
-      description: '🧪 Выпуск RC-версии'
+      description: '🧪 Issue RC version'

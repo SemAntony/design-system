@@ -1,22 +1,22 @@
-const { series } = require('nps-utils');
+const {series} = require('nps-utils');
 
 module.exports = {
     scripts: {
         start: {
             script: 'vite',
-            description: '🚀 Запуск Vite dev-сервера',
+            description: '🚀 Launch of the Vite DEV server',
         },
         dev: {
             script: 'storybook dev -p 6006',
-            description: '📘 Запуск Storybook на порту 6006',
+            description: '📘 Storybook launch on port 6006',
         },
         prebuild: {
             script: 'rm -rf dist',
-            description: '🧨 Очистка папки dist перед сборкой',
+            description: '🧨 Dist cleaning before assembly',
         },
         generateIndex: {
             script: 'node lib/scripts/generate-index.js',
-            description: '📄 Генерация общего index-файла для компонентов',
+            description: '📄 Generation of a common index file for components',
         },
         build: {
             script: series(
@@ -24,46 +24,46 @@ module.exports = {
                 'vite build',
                 'tsc'
             ),
-            description: '📦 Сборка проекта (index, vite, tsc)',
+            description: '📦 Project assembly (Index, Vite, TSC)',
         },
         preview: {
             script: 'vite preview',
-            description: '👀 Просмотр собранного проекта',
+            description: '👀 View the collected project',
         },
         lint: {
             script: 'eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0',
-            description: '🔍 Линтинг проекта',
+            description: '🔍 Project Linting',
         },
         lintFix: {
             script: 'eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix',
-            description: '🧹 Линтинг с авто-фиксом',
+            description: '🧹 Lint with auto-fix',
         },
         buildStorybook: {
             script: 'storybook build',
-            description: '📘 Сборка Storybook',
+            description: '📘 Assembly Storybook',
         },
         addChangeset: {
-            script: 'git add . && read -p "Введите комментарий к коммиту: " msg && git commit -m "$msg"',
-            description: '📦 Добавление изменений с ручным комментарием',
+            script: 'git add . && read -p "Enter a comment on the Commit" msg && git commit -m "$msg"',
+            description: '📦 Adding changes with manual commentary',
         },
         versionUpdate: {
             script: `
     determine_commit_type() {
       changes=$(git diff --name-only --cached)
       if echo "$changes" | grep -q "src/"; then
-        echo "feat: новые функции или изменения в исходных файлах"
+        echo "feat: New functions or changes in the source files"
       elif echo "$changes" | grep -q "test/"; then
-        echo "test: изменения в тестах"
+        echo "test: Changes in tests"
       elif echo "$changes" | grep -q "fix"; then
-        echo "fix: исправления багов"
+        echo "fix: Corrections of bugs"
       else
-        echo "chore: коммит изменений"
+        echo "chore: Committing changes"
       fi
     }
 
     commit_type=$(determine_commit_type)
-    echo "Предложенный комментарий: $commit_type"
-    read -p "Если хотите изменить комментарий, введите новый, иначе нажмите Enter для использования предложенного: " user_commit_message
+    echo "The proposed comment: $commit_type"
+    read -p "If you want to change the comment, enter a new one, otherwise click Enter to use the proposed: " user_commit_message
     commit_message="\${user_commit_message:-$commit_type}"
 
     git add .
@@ -72,33 +72,33 @@ module.exports = {
     git push git@github.com:SemAntony/design-system.git
     git push git@github.com:SemAntony/design-system.git --tags
   `.trim().replace(/\n\s+/g, ' && '),
-            description: 'Обновление версии с коммитом и пушем в удалённый репозиторий',
+            description: 'Updating the version with Commit and Put into the remote repository',
         },
 
         version: {
             patch: {
                 script: 'nps versionUpdate -- patch',
-                description: '🔖 Повышение patch-версии',
+                description: '🔖 Improving PATCH version',
             },
             minor: {
                 script: 'nps versionUpdate -- minor',
-                description: '🆙 Повышение minor-версии',
+                description: '🆙 Improving minor version',
             },
             major: {
                 script: 'nps versionUpdate -- major',
-                description: '🚀 Повышение major-версии',
+                description: '🚀 Improving the Major version',
             },
             beta: {
                 script: 'nps versionUpdate -- prerelease --preid=beta',
-                description: '🧪 Выпуск beta-версии',
+                description: '🧪 Issue beta version',
             },
             alpha: {
                 script: 'nps versionUpdate -- prerelease --preid=alpha',
-                description: '🧬 Выпуск alpha-версии',
+                description: '🧬 Issue Alpha version',
             },
             rc: {
                 script: 'nps versionUpdate -- prerelease --preid=rc',
-                description: '🚀 Выпуск rc-версии',
+                description: '🚀 Issue RC version',
             },
         },
     },
