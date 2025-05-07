@@ -30,7 +30,7 @@ jobs:
       - name: Build lib
         run: pnpm run build
 
-      # Добавим шаг для запуска нашего скрипта
+      # Add a step to launch our script
       - name: Run commit message script
         run: |
           git config --global user.name "github-actions[bot]"
