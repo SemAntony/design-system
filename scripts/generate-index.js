@@ -14,4 +14,4 @@ const indexFilePath = path.join(componentsDir, 'index.ts')
 
 fs.writeFileSync(indexFilePath, indexContent)
 
-console.log('✅ index.ts успешно обновлён!')
+console.log('✅ INDEX TS SUCCESSFULLY UPDATED')
